@@ -1,4 +1,4 @@
- Use uma Imagem Official do Python
+ #Use uma Imagem Official do Python
 FROM python:rc-slim
 
 # Definindo o diretório onde a aplicação será armazenada
