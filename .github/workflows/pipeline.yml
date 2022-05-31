@@ -30,17 +30,17 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}      
 
       - name: Login to Heroku Container registry
-        env: 
-           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        run: heroku container:login
+          env: 
+            HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          run: heroku container:login
 
-       - name: Docker Image & Push Heroku Registry
-         env:
-           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-         run: heroku container:push -a ${{ secrets.HEROKU_APP_NAME }} web         
+        - name: Docker Image & Push Heroku Registry
+          env:
+            HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          run: heroku container:push -a ${{ secrets.HEROKU_APP_NAME }} web     
 
   Deploy:
     needs: Build
@@ -51,5 +51,3 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
         run: heroku container:release -a ${{ secrets.HEROKU_APP_NAME }} web
-        
-
