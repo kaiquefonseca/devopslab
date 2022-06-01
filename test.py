@@ -22,3 +22,8 @@ class Test(unittest.TestCase):
         error_response = self.app.get('/bug')
 
         self.assertEqual(error_response.status, '500 INTERNAL SERVER ERROR')   
+
+    def test_rota_teste(self):
+        error_response = self.app.get('/teste')
+
+         self.assertEqual(self.result.status_code, 200) 
