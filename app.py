@@ -9,6 +9,13 @@ csrf = CSRFProtect(app)
 def pagina_inicial():
     return "Hello Kaique Fonseca"
 
+@app.route('/bug')
+def bad():
+    try:
+        raise TypeError()
+    except TypeError as e:
+        print(e)  
+
 if __name__ == '__main__':
     port = os.getenv('PORT')
     app.run('0.0.0.0', port=port)  
