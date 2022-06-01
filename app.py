@@ -17,7 +17,7 @@ def bad():
         print(e)  
 
 @app.route("/teste")
-def pagina_inicial():
+def teste():
     return "Nova rota para passar na cobertura de código"        
 
 if __name__ == '__main__':
