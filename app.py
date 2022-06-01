@@ -18,7 +18,10 @@ def bad():
 
 @app.route("/teste")
 def teste():
-    return "Nova rota para passar na cobertura de código"        
+    try:
+        raise TypeError()
+    except TypeError as e:
+        print(e)       
 
 if __name__ == '__main__':
     port = os.getenv('PORT')
