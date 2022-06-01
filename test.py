@@ -26,4 +26,5 @@ class Test(unittest.TestCase):
     def test_rota_teste(self):
         error_response = self.app.get('/teste')
 
-         self.assertEqual(self.result.status_code, 200) 
+        self.assertEqual(self.result.data.decode('utf-8'), "Nova rota para passar na cobertura de código") 
+
