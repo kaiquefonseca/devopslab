@@ -5,7 +5,7 @@ import unittest
 class Test(unittest.TestCase):
     def setUp(self):
         # cria uma instância do unittest, precisa do nome "setUp"
-        self.app = app.test_client()
+        self.app = app.test_client('0.0.0.0')
 
         # envia uma requisicao GET para a URL
         self.result = self.app.get('/')
@@ -17,3 +17,7 @@ class Test(unittest.TestCase):
     def test_conteudo(self):
         # verifica o retorno do conteudo da pagina
         self.assertEqual(self.result.data.decode('utf-8'), "Hello Kaique Fonseca")
+    
+    def test_url(self):
+        # verifica o retorno do conteudo da pagina
+        self.assertEqual(self.result.data.decode('utf-8'), "Hello Kaique Fonseca")    
