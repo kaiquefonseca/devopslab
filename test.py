@@ -24,7 +24,7 @@ class Test(unittest.TestCase):
         self.assertEqual(error_response.status, '500 INTERNAL SERVER ERROR')   
 
     def test_rota_teste(self):
-        error_response = self.app.get('/teste')
+        result_teste = self.app.get('/teste')
 
-        self.assertEqual(self.result.data.decode('utf-8'), "Nova rota para passar na cobertura de código") 
+        self.assertEqual(self.result_teste.data.decode('utf-8'), "Nova rota para passar na cobertura de código") 
 
