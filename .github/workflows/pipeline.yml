@@ -14,6 +14,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
+      - name: New Relic License
+        run: |
+          sed -i "s/licensekey/${{ secrets.NEW_RELIC_LICENSE_KEY }}/g" Dockerfile  
+
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
